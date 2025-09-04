@@ -2,95 +2,137 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Avix - Smart Poultry Monitoring Design System
+All colors MUST be HSL for consistent theming.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Theme - Sereno (default) */
+    --background: 220 14% 96%;
+    --foreground: 215 25% 27%;
+    
+    /* Brand Colors - Sereno Palette */
+    --brand-primary: 200 98% 39%;     /* #0EA5E9 */
+    --brand-secondary: 200 98% 65%;   /* #38BDF8 */
+    --brand-accent: 160 84% 39%;      /* #10B981 */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 98% 39%), hsl(160 84% 39%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 98% 39%) 0%, hsl(200 98% 65%) 50%, hsl(160 84% 39%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 14% 96%) 0%, hsl(220 14% 99%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px hsl(215 25% 27% / 0.08);
+    --shadow-md: 0 4px 12px hsl(215 25% 27% / 0.12);
+    --shadow-lg: 0 8px 24px hsl(215 25% 27% / 0.16);
+    --shadow-brand: 0 8px 32px hsl(200 98% 39% / 0.3);
+    
+    /* Status Colors */
+    --status-success: 160 84% 39%;    /* Verde */
+    --status-warning: 38 92% 50%;     /* Âmbar */
+    --status-danger: 0 84% 60%;       /* Vermelho */
+    --status-info: 200 98% 39%;       /* Azul primário */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Semantic Theme Colors */
+    --card: 220 14% 99%;
+    --card-foreground: 215 25% 27%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 14% 99%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 200 98% 39%;              /* Brand primary */
+    --primary-foreground: 220 14% 99%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 9% 89%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 9% 93%;
+    --muted-foreground: 215 13% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 160 84% 39%;               /* Brand accent */
+    --accent-foreground: 220 14% 99%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 14% 99%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 9% 89%;
+    --input: 220 9% 89%;
+    --ring: 200 98% 39%;
 
-    --radius: 0.5rem;
+    --radius: 0.625rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Sidebar - Sereno Theme */
+    --sidebar-background: 220 14% 99%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 200 98% 39%;
+    --sidebar-primary-foreground: 220 14% 99%;
+    --sidebar-accent: 220 9% 93%;
+    --sidebar-accent-foreground: 215 25% 27%;
+    --sidebar-border: 220 9% 89%;
+    --sidebar-ring: 200 98% 39%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animation Timings */
+    --transition-smooth: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Base Theme - Dark */
+    --background: 215 28% 17%;
+    --foreground: 220 14% 96%;
+    
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 98% 50%), hsl(160 84% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 98% 50%) 0%, hsl(200 98% 65%) 50%, hsl(160 84% 45%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(215 28% 19%) 0%, hsl(215 28% 21%) 100%);
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Semantic Theme Colors - Dark */
+    --card: 215 28% 19%;
+    --card-foreground: 220 14% 96%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 28% 19%;
+    --popover-foreground: 220 14% 96%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 200 98% 50%;
+    --primary-foreground: 215 28% 17%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 20% 25%;
+    --secondary-foreground: 220 14% 96%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 20% 25%;
+    --muted-foreground: 215 13% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 160 84% 45%;
+    --accent-foreground: 215 28% 17%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 220 14% 96%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 215 20% 25%;
+    --input: 215 20% 25%;
+    --ring: 200 98% 50%;
+
+    /* Sidebar - Dark Theme */
+    --sidebar-background: 215 28% 15%;
+    --sidebar-foreground: 220 14% 96%;
+    --sidebar-primary: 200 98% 50%;
+    --sidebar-primary-foreground: 215 28% 17%;
+    --sidebar-accent: 215 20% 22%;
+    --sidebar-accent-foreground: 220 14% 96%;
+    --sidebar-border: 215 20% 25%;
+    --sidebar-ring: 200 98% 50%;
+  }
+
+  /* Terra Palette (Alternative theme) */
+  .theme-terra {
+    --brand-primary: 80 61% 50%;       /* #65A30D */
+    --brand-secondary: 84 81% 69%;     /* #A3E635 */
+    --brand-accent: 38 92% 50%;        /* Âmbar */
+    --primary: 80 61% 50%;
+    --accent: 38 92% 50%;
+    --gradient-primary: linear-gradient(135deg, hsl(80 61% 50%), hsl(38 92% 50%));
+    --gradient-hero: linear-gradient(135deg, hsl(80 61% 50%) 0%, hsl(84 81% 69%) 50%, hsl(38 92% 50%) 100%);
   }
 }
 
@@ -101,5 +143,82 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+@layer components {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fade-in 250ms ease-out;
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 250ms ease-out;
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+
+  /* Status indicators */
+  .status-ok {
+    @apply bg-green-100 text-green-800 border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800;
+  }
+  
+  .status-warning {
+    @apply bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-900/20 dark:text-amber-300 dark:border-amber-800;
+  }
+  
+  .status-danger {
+    @apply bg-red-100 text-red-800 border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Custom shadows */
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
