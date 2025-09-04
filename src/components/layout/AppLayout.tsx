@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
-import { SidebarProvider } from "@/components/ui/sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { Menu } from "lucide-react";
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -17,6 +18,9 @@ export function AppLayout({ children }: AppLayoutProps) {
           {/* Header */}
           <header className="h-16 bg-card border-b border-border flex items-center justify-between px-6 shadow-sm">
             <div className="flex items-center gap-4">
+              <SidebarTrigger className="p-2 hover:bg-accent rounded-md transition-colors">
+                <Menu className="w-5 h-5" />
+              </SidebarTrigger>
               <h2 className="text-lg font-semibold text-foreground">
                 Monitoramento Inteligente
               </h2>
