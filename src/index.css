@@ -180,6 +180,28 @@ All colors MUST be HSL for consistent theming.
     @apply bg-red-100 text-red-800 border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800;
   }
 
+  /* Sidebar Menu Buttons - Force visibility */
+  .sidebar-menu-button {
+    @apply text-card-foreground bg-transparent border border-transparent;
+    min-height: 3rem;
+  }
+  
+  .sidebar-menu-button:hover {
+    @apply bg-accent text-accent-foreground border-accent/20;
+  }
+  
+  .sidebar-menu-button.active {
+    @apply bg-primary text-primary-foreground border-primary/20 font-medium shadow-sm;
+  }
+  
+  .sidebar-menu-button .menu-icon {
+    @apply text-current opacity-90;
+  }
+  
+  .sidebar-menu-button .menu-text {
+    @apply text-current opacity-100;
+  }
+
   /* Gradient backgrounds */
   .bg-gradient-primary {
     background: var(--gradient-primary);

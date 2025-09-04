@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
-  BarChart3,
   Home,
   Thermometer,
   Flame,
@@ -57,52 +56,50 @@ export function AppSidebar() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const isActive = (path: string) => currentPath === path;
-
   return (
-    <Sidebar className="w-64">
-      <SidebarContent className="bg-sidebar border-sidebar-border">
+    <Sidebar className="w-64 border-r border-border">
+      <SidebarContent className="bg-card">
         {/* Header */}
-        <div className="flex items-center gap-3 p-4 border-b border-sidebar-border">
-          <div className="flex items-center justify-center w-8 h-8 bg-gradient-primary rounded-lg shadow-sm">
-            <Monitor className="w-5 h-5 text-white" />
+        <div className="flex items-center gap-3 p-4 border-b border-border">
+          <div className="flex items-center justify-center w-8 h-8 bg-primary rounded-lg shadow-sm">
+            <Monitor className="w-5 h-5 text-primary-foreground" />
           </div>
           <div className="flex flex-col">
-            <h1 className="text-lg font-bold text-sidebar-foreground">
+            <h1 className="text-lg font-bold text-card-foreground">
               Avix
             </h1>
-            <p className="text-xs text-sidebar-foreground/70">
+            <p className="text-xs text-muted-foreground">
               Smart Poultry Monitoring
             </p>
           </div>
         </div>
 
-        <SidebarGroup className="flex-1">
-          <SidebarGroupLabel className="text-sidebar-foreground/80 font-medium px-4 py-3">
+        <SidebarGroup className="flex-1 py-4">
+          <SidebarGroupLabel className="text-card-foreground font-medium px-4 py-2 text-sm mb-2">
             Monitoramento
           </SidebarGroupLabel>
 
           <SidebarGroupContent className="px-2">
-            <SidebarMenu>
+            <SidebarMenu className="space-y-1">
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className="h-11 px-3 mb-1">
+                  <SidebarMenuButton asChild>
                     <NavLink 
                       to={item.url} 
                       end 
                       className={({ isActive }) =>
-                        isActive 
-                          ? "bg-primary text-primary-foreground font-medium shadow-sm flex items-center w-full" 
-                          : "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-fast flex items-center w-full"
+                        `sidebar-menu-button flex items-center w-full px-3 py-3 rounded-md transition-colors ${
+                          isActive ? "active" : ""
+                        }`
                       }
                       title={item.description}
                     >
-                      <item.icon className="w-5 h-5 flex-shrink-0" />
-                      <div className="flex flex-col ml-3 min-w-0">
-                        <span className="text-sm font-medium truncate">
+                      <item.icon className="menu-icon w-5 h-5 flex-shrink-0 mr-3" />
+                      <div className="flex flex-col min-w-0 flex-1">
+                        <span className="menu-text text-sm font-medium truncate">
                           {item.title}
                         </span>
-                        <span className="text-xs opacity-70 truncate">
+                        <span className="menu-text text-xs opacity-75 truncate">
                           {item.description}
                         </span>
                       </div>
@@ -115,16 +112,16 @@ export function AppSidebar() {
         </SidebarGroup>
 
         {/* Footer */}
-        <div className="p-4 border-t border-sidebar-border">
+        <div className="p-4 border-t border-border">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-muted rounded-full flex items-center justify-center">
-              <span className="text-sm font-medium">U</span>
+              <span className="text-sm font-medium text-muted-foreground">U</span>
             </div>
             <div className="flex flex-col min-w-0">
-              <p className="text-sm font-medium text-sidebar-foreground truncate">
+              <p className="text-sm font-medium text-card-foreground truncate">
                 Usuário Demo
               </p>
-              <p className="text-xs text-sidebar-foreground/70 truncate">
+              <p className="text-xs text-muted-foreground truncate">
                 demo@avix.com
               </p>
             </div>
