@@ -82,7 +82,7 @@ export function AppSidebar() {
                       to={item.url} 
                       end 
                       className={({ isActive }) =>
-                        `sidebar-menu-button flex items-center w-full px-3 py-3 rounded-md transition-all duration-300 ease-out transform hover:scale-[1.02] hover:shadow-md ${
+                        `sidebar-menu-button flex items-center w-full px-3 py-3 rounded-md ${
                           isActive ? "active" : ""
                         }`
                       }
