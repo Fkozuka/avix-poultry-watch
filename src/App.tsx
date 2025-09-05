@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Temperatura from "./pages/Temperatura";
 import Aquecedor from "./pages/Aquecedor";
 import Conversao from "./pages/Conversao";
+import Relatorio from "./pages/Relatorio";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
@@ -39,6 +40,11 @@ const App = () => (
           <Route path="/conversao" element={
             <AppLayout>
               <Conversao />
+            </AppLayout>
+          } />
+          <Route path="/relatorio" element={
+            <AppLayout>
+              <Relatorio />
             </AppLayout>
           } />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

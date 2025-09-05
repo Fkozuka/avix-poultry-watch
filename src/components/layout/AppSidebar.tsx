@@ -5,7 +5,8 @@ import {
   Flame,
   Scale,
   Settings,
-  Monitor
+  Monitor,
+  FileText
 } from "lucide-react";
 
 import {
@@ -43,6 +44,12 @@ const navigationItems = [
     url: "/conversao", 
     icon: Scale,
     description: "Análise de performance" 
+  },
+  { 
+    title: "Relatórios", 
+    url: "/relatorio", 
+    icon: FileText,
+    description: "Análises e relatórios" 
   },
 ];
 
