@@ -8,7 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Temperatura from "./pages/Temperatura";
 import Aquecedor from "./pages/Aquecedor";
 import Conversao from "./pages/Conversao";
-import Configuracoes from "./pages/Configuracoes";
+import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,17 +19,31 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AppLayout>
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/temperatura" element={<Temperatura />} />
-            <Route path="/aquecedor" element={<Aquecedor />} />
-            <Route path="/conversao" element={<Conversao />} />
-            <Route path="/configuracoes" element={<Configuracoes />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AppLayout>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={
+            <AppLayout>
+              <Dashboard />
+            </AppLayout>
+          } />
+          <Route path="/temperatura" element={
+            <AppLayout>
+              <Temperatura />
+            </AppLayout>
+          } />
+          <Route path="/aquecedor" element={
+            <AppLayout>
+              <Aquecedor />
+            </AppLayout>
+          } />
+          <Route path="/conversao" element={
+            <AppLayout>
+              <Conversao />
+            </AppLayout>
+          } />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
